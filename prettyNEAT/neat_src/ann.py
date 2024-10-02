@@ -251,9 +251,11 @@ def selectAct(action, actSelect):
                          [N X 1]
   """  
   if actSelect == 'softmax':
-    action = softmax(action)
+    action = softmax(action).flatten()
   elif actSelect == 'prob':
     action = weightedRandom(np.sum(action,axis=0))
+  elif actSelect == 'tanh':
+    action = np.tanh(action).flatten()
   else:
     action = action.flatten()
   return action

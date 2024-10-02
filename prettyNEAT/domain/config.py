@@ -12,7 +12,7 @@ games = {}
 
 # > Slower reaction speed
 cartpole_swingup = Game(env_name='CartPoleSwingUp_Hard',
-  actionSelect='all', # all, soft, hard
+  actionSelect='weighted', # all, soft, hard
   input_size=5,
   output_size=1,
   time_factor=0,
