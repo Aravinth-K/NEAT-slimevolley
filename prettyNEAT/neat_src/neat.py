@@ -49,6 +49,7 @@ class Neat():
       self.probMoo()      # Rank population according to objectivess
       self.speciate()     # Divide population into species
       self.evolvePop()    # Create child population 
+      self.gen += 1
 
     return self.pop       # Send child population for evaluation
 

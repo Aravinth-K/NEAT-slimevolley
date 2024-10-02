@@ -34,3 +34,26 @@ cartpole_swingup = cartpole_swingup._replace(\
     env_name='CartPoleSwingUp', max_episode_length=1000)
 games['swingup'] = cartpole_swingup
 
+
+# -- Slime Volley Ball --------------------------------------------------- -- #
+slimevolley = Game(env_name='SlimeVolley-v0',
+  actionSelect='tanh', # all, soft, hard
+  input_size=12,
+  output_size=3,
+  time_factor=0,
+  layers=[32, 9],
+  i_act=np.full(12,1),
+  h_act=[1,2,3,4,5,6,7,8,9,10],
+  o_act=np.full(3,1),
+  weightCap = 2.0,
+  noise_bias=0.0,
+  output_noise=[False, False, False],
+  max_episode_length = 3000,
+  in_out_labels = ['x', 'y', 'vx', 'vy',
+                    'bx', 'by', 'bvx', 'bvy',
+                    'ox', 'oy', 'ovx', 'ovy']
+)
+games['slimevolley'] = slimevolley
+
+slimesurvival = slimevolley._replace(env_name='SlimeSurvival-v0')
+games['slimesurvival'] = slimesurvival
